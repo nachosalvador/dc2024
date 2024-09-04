@@ -1,0 +1,16 @@
+name: Block Weather
+type: module
+description: Adds a block with the weather data.
+core_version_requirement: ^10 || ^11
+dependencies:
+  - block
+  - config
+  - field
+  - file
+  - filter
+  - image
+  - node
+  - options
+  - taxonomy
+  - text
+  - user

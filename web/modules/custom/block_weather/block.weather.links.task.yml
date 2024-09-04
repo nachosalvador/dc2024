@@ -1,0 +1,4 @@
+block_weather.settings_tab:
+  route_name: block_weather.admin_form
+  title: 'Settings'
+  base_route: block_weather.admin_form

@@ -1,0 +1,13 @@
+block_weather.admin_form:
+  title: 'Settings'
+  parent: block_weather.admin_index
+  description: 'Configure the Block Weather settings.'
+  weight: -10
+  route_name: block_weather.admin_form
+block_weather.admin_index:
+  title: Block Weather
+  route_name: block_weather.admin_index
+  parent: system.admin_config
+  description: 'Configure Block Weather.'
+  position: left
+  weight: -20
