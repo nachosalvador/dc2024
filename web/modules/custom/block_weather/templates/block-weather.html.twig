@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default template for the block weather.
+ *
+ * Available variables:
+ *   - data: Weather data.
+ */
+#}
+
+<div class="block-weather">
+  <h3>{{ data.location.name }}</h3>
+  <p>{{ data.current.condition.text }}</p>
+  <p>{{ data.current.temp_c }}°C</p>
+</div>

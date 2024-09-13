@@ -65,9 +65,9 @@ class WeatherBlock extends BlockBase implements ContainerFactoryPluginInterface 
    * {@inheritdoc}
    */
   public function build() {
-    $data = $this->getData();
     return [
-      '#markup' => 'The weather in ' . $data->location->name . ' is: ' . $data->current->condition->text . ' and the temperature is ' . $data->current->temp_c . 'ºC',
+      '#theme' => 'block_weather',
+      '#data' => $this->getData(),
     ];
   }
 

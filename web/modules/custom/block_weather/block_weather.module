@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Implements hook_theme().
+ */
+function block_weather_theme() {
+  return [
+    'block_weather' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
+  ];
+}
