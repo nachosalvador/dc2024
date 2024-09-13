@@ -67,14 +67,38 @@ class WeatherBlock extends BlockBase implements ContainerFactoryPluginInterface 
   public function build() {
     $data = $this->getData();
     return [
-      '#markup' => $this->t('The weather in Elche is: ') . $data->current->condition->text . ' and the temperature is ' . $data->current->temp_c . 'ºC',
+      '#markup' => 'The weather in ' . $data->location->name . ' is: ' . $data->current->condition->text . ' and the temperature is ' . $data->current->temp_c . 'ºC',
     ];
   }
 
+  /**
+   * Fetches the data from the API.
+   *
+   * @return mixed
+   */
   protected function getData() {
     $client = $this->httpClient;
-    $config = $this->configFactory->get('block_weather.settings');
-    $response = $client->get('https://api.weatherapi.com/v1/current.json?q=' . $config->get('city') . '&lang=es&key=' . $config->get('api_key'));
+    $uri = $this->getUri();
+    $response = $client->get($uri);
+
     return json_decode($response->getBody());
   }
+
+  /**
+   * Returns the URI to fetch the data from.
+   *
+   * @return string
+   */
+  protected function getUri() {
+    $endpoint = 'https://api.weatherapi.com/v1/current.json';
+    $config = $this->configFactory->get('block_weather.settings');
+    $query = [
+      'q' => $config->get('city'),
+      'lang' => 'es',
+      'key' => $config->get('api_key'),
+    ];
+
+    return $endpoint . '?' . http_build_query($query);
+  }
+
 }
