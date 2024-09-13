@@ -1,0 +1,20 @@
+uuid: a34939f8-332f-40e3-832b-5e432d330854
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_weather
+  theme:
+    - olivero
+id: olivero_weatherblock
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: hello_block
+settings:
+  id: hello_block
+  label: 'Weather block'
+  label_display: visible
+  provider: block_weather
+visibility: {  }
