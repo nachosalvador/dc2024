@@ -5,6 +5,7 @@ namespace Drupal\block_weather\Plugin\Block;
 use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Language\LanguageManagerInterface; 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use GuzzleHttp\ClientInterface;
@@ -36,16 +37,36 @@ class WeatherBlock extends BlockBase implements ContainerFactoryPluginInterface 
    */
   protected $httpClient;
 
+  /**
+   * The language manager.
+   *
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+
+  /**
+   * Constructs a WeatherBlock object.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
+   * @param \GuzzleHttp\ClientInterface $http_client
+   *    The HTTP client.
+   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
+   *   The language manager.
+   */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
     ConfigFactoryInterface $config_factory,
-    ClientInterface $http_client
+    ClientInterface $http_client,
+    LanguageManagerInterface $language_manager
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->configFactory = $config_factory;
     $this->httpClient = $http_client;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -57,7 +78,8 @@ class WeatherBlock extends BlockBase implements ContainerFactoryPluginInterface 
       $plugin_id,
       $plugin_definition,
       $container->get('config.factory'),
-      $container->get('http_client')
+      $container->get('http_client'),
+      $container->get('language_manager')
     );
   }
 
@@ -94,7 +116,7 @@ class WeatherBlock extends BlockBase implements ContainerFactoryPluginInterface 
     $config = $this->configFactory->get('block_weather.settings');
     $query = [
       'q' => $config->get('city'),
-      'lang' => 'es',
+      'lang' => $this->languageManager->getCurrentLanguage()->getId(),
       'key' => $config->get('api_key'),
     ];
 

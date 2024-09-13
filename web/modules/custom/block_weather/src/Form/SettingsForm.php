@@ -45,6 +45,7 @@ class SettingsForm extends ConfigFormBase {
       '#description' => $this->t('The API key to authenticate with the Weather API.'),
       '#default_value' => $config->get('api_key'),
     ];
+
     $form['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),

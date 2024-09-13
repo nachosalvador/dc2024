@@ -10,6 +10,6 @@
 
 <div class="block-weather">
   <h3>{{ data.location.name }}</h3>
-  <p>{{ data.current.condition.text }}</p>
+  <p><img src="{{ data.current.condition.icon }}"> {{ data.current.condition.text }}</p>
   <p>{{ data.current.temp_c }}°C</p>
 </div>
