@@ -1,0 +1,5 @@
+block_weather.settings:
+  title: 'Block Weather'
+  base_route_name: block_weather.admin_form
+  names:
+    - 'block_weather.settings'
