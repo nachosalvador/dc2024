@@ -1,0 +1,24 @@
+{
+    "name": "drupal/block_weather",
+    "description": "This module provides a block with the weather of a city using the WeatherAPI.com",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/block_weather",
+    "authors": [
+        {
+            "name": "Nacho Salvador",
+            "homepage": "https://www.drupal.org/u/nachosalvador"
+        },
+        {
+            "name": "Ruben Egiguren (keopx)",
+            "homepage": "https://www.drupal.org/u/keopx"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/block_weather",
+        "source": "https://git.drupalcode.org/project/block_weather"
+    },
+    "require": {
+        "drupal/key": "^1.1"
+    }
+}

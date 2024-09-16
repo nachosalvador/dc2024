@@ -40,3 +40,5 @@ node_modules
 # Ignore some css related stuff
 *.css.map
 *.css.map.map
+/.editorconfig
+/.gitattributes
