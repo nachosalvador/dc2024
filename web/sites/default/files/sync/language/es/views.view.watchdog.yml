@@ -1,0 +1,10 @@
+display:
+  default:
+    display_options:
+      fields:
+        type:
+          label: Tipo
+      filters:
+        type:
+          expose:
+            label: Tipo

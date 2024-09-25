@@ -20,5 +20,8 @@
     },
     "require": {
         "drupal/key": "^1.1"
+    },
+    "suggest": {
+        "drupal/config_inspector": "Provides a menu item under: Reports > Configuration inspector that lets you inspect configuration"
     }
 }

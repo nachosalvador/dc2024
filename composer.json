@@ -22,6 +22,9 @@
         "drupal/key": "^1.1",
         "drush/drush": "^13.0"
     },
+    "require-dev": {
+        "drupal/config_inspector": "^2.1"
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
